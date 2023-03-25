@@ -267801,7 +267801,7 @@ function wordsContainingCatAndLengthIsFive() {
   var word = [];
   wordList.forEach((i) => {
     word = i.split("");
-    if (word.length <= 5) {
+    if (word.length == 5) {
       for (var l = 0; l < word.length; l++) {
         if (word[l] == "C" && word[l + 1] == "A" && word[l + 2] == "T") {
           res.push(i);
@@ -267813,3 +267813,22 @@ function wordsContainingCatAndLengthIsFive() {
 }
 
 console.log(wordsContainingCatAndLengthIsFive());
+
+function wordNotContainingEOrA() {
+  var res = [];
+  var word = [];
+  wordList.forEach((i) => {
+    if (i.length <= 15) {
+      res.push(i);
+      word = i.split("");
+      for (var l = 0; l < word.length; l++) {
+        if (word[l] === "E" || word[l] === "A") {
+          res.pop(i);
+        }
+      }
+    }
+  });
+  return res;
+}
+
+console.log(wordNotContainingEOrA());
