@@ -267780,3 +267780,18 @@ function wordsContainingXYZ() {
 }
 
 console.log(wordsContainingXYZ());
+
+function wordsContainingQAndNotU() {
+  var res = [];
+  wordList.forEach((i) => {
+    if (
+      (i.includes("Q") && !i.includes("U")) ||
+      (i.includes("q") && !i.includes("u"))
+    ) {
+      res.push(i);
+    }
+  });
+  return res;
+}
+
+console.log(wordsContainingQAndNotU());
