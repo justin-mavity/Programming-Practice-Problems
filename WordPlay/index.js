@@ -267763,3 +267763,20 @@ function wordsContainingUU() {
 }
 
 console.log(wordsContainingUU());
+
+function wordsContainingXYZ() {
+  var res = [];
+  wordList.forEach((i) => {
+    if (
+      (i.includes("X") && i.includes("Y") && i.includes("Z")) ||
+      (i.includes("X") && i.includes("y") && i.includes("z")) ||
+      (i.includes("x") && i.includes("Y") && i.includes("z")) ||
+      (i.includes("x") && i.includes("y") && i.includes("Z"))
+    ) {
+      res.push(i);
+    }
+  });
+  return res;
+}
+
+console.log(wordsContainingXYZ());
