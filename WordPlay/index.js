@@ -267795,3 +267795,21 @@ function wordsContainingQAndNotU() {
 }
 
 console.log(wordsContainingQAndNotU());
+
+function wordsContainingCatAndLengthIsFive() {
+  var res = [];
+  var word = [];
+  wordList.forEach((i) => {
+    word = i.split("");
+    if (word.length <= 5) {
+      for (var l = 0; l < word.length; l++) {
+        if (word[l] == "C" && word[l + 1] == "A" && word[l + 2] == "T") {
+          res.push(i);
+        }
+      }
+    }
+  });
+  return res;
+}
+
+console.log(wordsContainingCatAndLengthIsFive());
