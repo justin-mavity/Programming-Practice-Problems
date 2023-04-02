@@ -267879,25 +267879,72 @@ function wordsWithNoVowels() {
 
 console.log(wordsWithNoVowels());
 
-function wordsContainigAllVowels() {
-  let vowels = ["A", "E", "i", "O", "U"];
-  let res = [];
-  let wordVowels = new Set();
-  wordList.forEach((i) => {
-    let word = i.split("");
-    for (let k = 0; k < word.length; k++) {
-      for (let j = 0; j < vowels.length; j++) {
-        if (word[k] == voewls[j]) {
-          wordVowels.add(vowels[j]);
-        }
-      }
+function wordsContainingAllVowels() {
+  let vowelsObj = {};
+  let res = wordList;
+  wordList.forEach((k) => {
+    let numOfA = k.match(/[A]/gi);
+    if (numOfA == null) {
+      vowelsObj.a = 0;
+      res.pop(k);
+    } else {
+      vowelsObj.a = numOfA.length;
     }
-    if (wordVowels === vowels) {
-      res.push(i);
+    let numOfE = k.match(/[E]/gi);
+    if (numOfE == null) {
+      vowelsObj.e = 0;
+      res.pop(k);
+    } else {
+      vowelsObj.e = numOfE.length;
     }
-    console.log(wordVowels);
+    let numOfI = k.match(/[I]/gi);
+    if (numOfI == null) {
+      vowelsObj.i = 0;
+      res.pop(k);
+    } else {
+      vowelsObj.i = numOfI.length;
+    }
+    let numOfO = k.match(/[O]/gi);
+    if (numOfO == null) {
+      vowelsObj.o = 0;
+      res.pop(k);
+    } else {
+      vowelsObj.o = numOfO.length;
+    }
+    let numOfU = k.match(/[U]/gi);
+    if (numOfU == null) {
+      vowelsObj.u = 0;
+      res.pop(k);
+    } else {
+      vowelsObj.u = numOfI.length;
+    }
   });
   return res;
 }
 
-console.log(wordsContainigAllVowels());
+console.log(wordsContainingAllVowels());
+
+function wordsContainingAllVowelsInOrder() {
+  let res = wordList;
+  wordList.forEach((e) => {
+    let n = e.length;
+    let c = String.fromCharCode(64);
+
+    for (let i = 0; i < n; i++) {
+      if (
+        e[i] == "A" ||
+        e[i] == "E" ||
+        e[i] == "I" ||
+        e[i] == "O" ||
+        e[i] == "U"
+      ) {
+        res.pop(i);
+      } else {
+        c = e[i];
+      }
+    }
+  });
+  return res;
+}
+
+console.log(wordsContainingAllVowelsInOrder());
